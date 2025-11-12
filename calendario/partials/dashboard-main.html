@@ -1,0 +1,129 @@
+<!-- DASHBOARD PRINCIPAL - layout do chefe -->
+<section class="dashboard-main">
+    
+    <!-- Cards de Estatísticas HORIZONTAIS -->
+    <div class="stats-section">
+        <div class="stats-grid">
+            <!-- Total de Agendamentos -->
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 class="stat-number" id="totalAgendamentosDashboard">0</h3>
+                    <p class="stat-label">Total de Agendamentos</p>
+                </div>
+            </div>
+            
+            <!-- Agendamentos Hoje -->
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 class="stat-number" id="agendamentosHojeDashboard">0</h3>
+                    <p class="stat-label">Agendamentos Hoje</p>
+                </div>
+            </div>
+            
+            <!-- Pendentes de Aprovação -->
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-hourglass-half"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 class="stat-number" id="pendentesDashboard">0</h3>
+                    <p class="stat-label">Pendentes de Aprovação</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTEÚDO COM SIDEBAR LATERAL -->
+    <div class="content-with-sidebar">
+        
+        <!-- ÁREA PRINCIPAL - TABELA -->
+        <div class="main-content-area">
+            <!-- Seção de Agendamentos -->
+            <section class="agendamentos-section">
+                <div class="section-header">
+                    <h2 class="section-title">Próximos Agendamentos</h2>
+                    <p class="section-subtitle">Acompanhe todos os agendamentos em tempo real</p>
+                </div>
+
+                <!-- Tabela -->
+                <div class="table-container">
+                    <table class="agendamentos-table" id="tabelaAgendamentosDashboard">
+                        <thead>
+                            <tr>
+                                <th>Data/Hora</th>
+                                <th>Solicitante</th>
+                                <th>Email</th>
+                                <th>Sala</th>
+                                <th>Assunto</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="6" class="loading-state">
+                                    <i class="fas fa-spinner fa-spin"></i>
+                                    Carregando agendamentos...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+
+        <!-- SIDEBAR DIREITA -->
+        <aside class="sidebar-widgets">
+            
+            <!-- Calendário -->
+            <div class="calendar-widget">
+                <div class="calendar-header">
+                    <button class="calendar-nav" id="prevMonthDashboard">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <h3 id="currentMonthDashboard">Outubro 2025</h3>
+                    <button class="calendar-nav" id="nextMonthDashboard">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="mini-calendar" id="miniCalendarDashboard">
+                    <!-- JavaScript vai gerar os dias -->
+                </div>
+            </div>
+
+            <!-- Informações do Sistema -->
+            <div class="system-info-widget">
+                <h3>Informações do Sistema</h3>
+                <div class="info-list">
+                    <div class="info-item">
+                        <span class="info-label">Status:</span>
+                        <span class="info-value online">
+                            <i class="fas fa-circle"></i>
+                            Sistema Online
+                        </span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Versão:</span>
+                        <span class="info-value">5.0 Professional</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Data:</span>
+                        <span class="info-value" id="currentDateTimeDashboard">24/10/2025 20:57:51</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Criador:</span>
+                        <span class="info-value">Bruno Eduardo Ramanery Ferreira</span>
+                    </div>
+                </div>
+            </div>
+
+        </aside>
+
+    </div>
+
+</section>

@@ -1,0 +1,116 @@
+/* =============================================
+   BASE.CSS - VERSÃO 5 (MODIFICADO)
+   MUDANÇA: Atualizar cores para igual ao do chefe
+   ============================================= */
+
+:root {
+  /* 
+   * CORES CORPORATIVAS - NOVAS (igual ao seu chefe)
+   * ANTES: Azul escuro (#0e1621) 
+   * DEPOIS: Vermelho corporativo (#8B2635)
+   */
+  --drawind-primary: #8B2635;          /* Vermelho principal - COR DO CHEFE */
+  --drawind-secondary: #A52A2A;        /* Vermelho claro */
+  --drawind-accent: #6B1E2A;           /* Vermelho escuro */
+  --drawind-light: #F5F5F5;            /* Fundo claro - COR DO CHEFE */
+  --drawind-dark: #333333;             /* Texto escuro - COR DO CHEFE */
+  
+  /* 
+   * CORES DE TEXTO - ATUALIZADAS
+   * ANTES: Branco sobre fundo escuro
+   * DEPOIS: Escuro sobre fundo claro (igual chefe)
+   */
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-muted: #999999;
+  --text-accent: #8B2635;
+  
+  /* 
+   * CORES DE STATUS - MANTIDAS (funcionam bem com novo esquema)
+   */
+  --status-pendente: #F59E0B;
+  --status-confirmado: #10B981;
+  --status-cancelado: #EF4444;
+  
+  /* 
+   * CORES DE UI - ATUALIZADAS
+   * ANTES: Cards escuros
+   * DEPOIS: Cards claros (igual chefe)
+   */
+  --border-color: #E0E0E0;
+  --card-bg: #FFFFFF;
+  --hover-bg: #F8F9FA;
+  --modal-bg: #FFFFFF;
+  
+  /* 
+   * SOMBRAS - ATUALIZADAS
+   * ANTES: Sombras escuras
+   * DEPOIS: Sombras suaves (igual chefe)
+   */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.15);
+  
+  /* Bordas - mantidas */
+  --border-radius: 8px;
+  --border-radius-sm: 6px;
+  --border-radius-lg: 12px;
+}
+
+/* 
+ * FUNDO DO BODY - MODIFICADO
+ * ANTES: Gradiente escuro
+ * DEPOIS: Fundo claro sólido (igual chefe)
+ */
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--drawind-light); /* FUNDO CLARO DO CHEFE */
+  color: var(--text-primary); /* TEXTO ESCURO DO CHEFE */
+  line-height: 1.6;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* 
+ * CONTAINER PRINCIPAL - NOVO
+ * Para substituir o .dashboard-container antigo
+ */
+.system-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 
+ * CONTAINER PARA CONTEÚDO - NOVO
+ * Similar ao container do Bootstrap do chefe
+ */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Animações globais - MANTIDAS (funcionam bem) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Utility classes - NOVAS (para facilitar) */
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.d-flex { display: flex; }
+.justify-between { justify-content: space-between; }
+.align-center { align-items: center; }

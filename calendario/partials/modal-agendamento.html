@@ -1,0 +1,146 @@
+<!-- 
+    COMPONENTE: MODAL-AGENDAMENTO (Janela de Novo Agendamento)
+    Arquivo: partials/modal-agendamento.html
+    Função: Formulário para criar novos agendamentos em uma janela sobreposta
+-->
+
+<!-- Modal para Novo Agendamento -->
+<div id="modalAgendamento" class="modal">
+    
+    <!-- Conteúdo do Modal -->
+    <div class="modal-content">
+        
+        <!-- Botão Fechar (X) -->
+        <span class="close-btn">&times;</span>
+        
+        <!-- Título do Modal -->
+        <h2 class="modal-title">
+            <i class="fas fa-calendar-plus"></i>
+            Novo Agendamento
+        </h2>
+        
+        <!-- Formulário de Agendamento -->
+        <form id="formAgendamento" class="agendamento-form">
+            
+            <!-- Linha 1: Sala e Data -->
+            <div class="form-row">
+                
+                <!-- Campo: Seleção de Sala -->
+                <div class="form-group">
+                    <label for="selectSala">
+                        <i class="fas fa-door-open"></i>
+                        Sala:
+                    </label>
+                    <select id="selectSala" required>
+                        <option value="">Selecione uma sala</option>
+                        <option value="Sala do Segundo Andar">Sala do Segundo Andar </option>
+                        <option value="Sala do Quarto Andar">Sala do Quarto Andar </option>
+                    </select>
+                </div>
+
+                <!-- Campo: Data do Agendamento -->
+                <div class="form-group">
+                    <label for="inputData">
+                        <i class="fas fa-calendar-day"></i>
+                        Data:
+                    </label>
+                    <input type="date" id="inputData" required>
+                </div>
+                
+            </div>
+
+            <!-- Linha 2: Horário e Duração -->
+            <div class="form-row">
+                
+                <!-- Campo: Horário -->
+                <div class="form-group">
+                    <label for="selectHorario">
+                        <i class="fas fa-clock"></i>
+                        Horário:
+                    </label>
+                    <select id="selectHorario" required>
+                        <option value="">Selecione um horário</option>
+                        <!-- Os horários disponíveis serão preenchidos por JavaScript -->
+                    </select>
+                </div>
+
+                <!-- Campo: Duração -->
+                <div class="form-group">
+                    <label for="selectDuracao">
+                        <i class="fas fa-hourglass-half"></i>
+                        Duração:
+                    </label>
+                    <select id="selectDuracao" required>
+                        <option value="30">30 minutos</option>
+                        <option value="60">1 hora</option>
+                        <option value="90">1 hora e 30min</option>
+                        <option value="120">2 horas</option>
+                        <option value="180">3 horas</option>
+                    </select>
+                </div>
+                
+            </div>
+
+            <!-- Linha 3: Solicitante e Email -->
+            <div class="form-row">
+                
+                <!-- Campo: Nome do Solicitante -->
+                <div class="form-group">
+                    <label for="inputSolicitante">
+                        <i class="fas fa-user"></i>
+                        Solicitante:
+                    </label>
+                    <input type="text" id="inputSolicitante" placeholder="Nome completo do solicitante" required>
+                </div>
+
+                <!-- Campo: Email -->
+                <div class="form-group">
+                    <label for="inputEmail">
+                        <i class="fas fa-envelope"></i>
+                        Email:
+                    </label>
+                    <input type="email" id="inputEmail" placeholder="email@empresa.com" required>
+                </div>
+                
+            </div>
+
+            <!-- Campo: Tema da Reunião -->
+            <div class="form-group">
+                <label for="inputServico">
+                    <i class="fas fa-briefcase"></i>
+                    Tema da Reunião:
+                </label>
+                <input type="text" id="inputServico" placeholder="Descreva o tema ou assunto da reunião" required>
+            </div>
+
+            <!-- Campo: Observações (Opcional) -->
+            <div class="form-group">
+                <label for="inputObservacoes">
+                    <i class="fas fa-sticky-note"></i>
+                    Observações (opcional):
+                </label>
+                <textarea id="inputObservacoes" placeholder="Alguma observação adicional sobre a reunião..." rows="3"></textarea>
+            </div>
+
+            <!-- Notificação do Sistema -->
+            <div class="form-notification">
+                <i class="fas fa-info-circle"></i>
+                <span>Um email de confirmação será enviado para o endereço informado após a aprovação.</span>
+            </div>
+
+            <!-- Botões de Ação -->
+            <div class="form-actions">
+                <button type="button" class="btn-secondary" id="btnCancelar">
+                    <i class="fas fa-times"></i>
+                    Cancelar
+                </button>
+                <button type="submit" class="btn-primary">
+                    <i class="fas fa-check"></i>
+                    Solicitar Agendamento
+                </button>
+            </div>
+            
+        </form>
+        
+    </div>
+</div>

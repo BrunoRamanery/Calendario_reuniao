@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo - Sistema de Agendamento</title>
+    
+    <link rel="stylesheet" href="CSS/base.css">
+    <link rel="stylesheet" href="CSS/layout.css">
+    <link rel="stylesheet" href="CSS/componentes.css">
+    <link rel="stylesheet" href="CSS/admin.css">
+    <link rel="stylesheet" href="CSS/admin-auth.css">
+    <link rel="stylesheet" href="CSS/responsivo.css">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+</head>
+<body class="pagina-admin">
+    
+    <header class="header-admin">
+        <div class="container">
+            <div class="header-content">
+                <div class="brand-section">
+                    <i class="fas fa-user-shield brand-icon"></i>
+                    <h1 class="brand-title">Painel Administrativo</h1>
+                </div>
+                <div class="header-actions">
+                    <div class="admin-info">
+                        <span class="admin-welcome">Olá, Administrador</span>
+                        <span class="admin-status online">
+                            <i class="fas fa-circle"></i>
+                            Sistema Online
+                        </span>
+                    </div>
+                    <button class="btn btn-outline" onclick="adminAuth.logout()" title="Sair">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Sair
+                    </button>
+                    <a href="calendario.html" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i>
+                        Voltar ao Sistema
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-admin">
+        <div class="container">
+            
+            <!-- Estatísticas Rápidas -->
+            <div class="stats-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-number" id="totalPendentes">0</h3>
+                            <p class="stat-label">Solicitações Pendentes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-number" id="totalAprovados">0</h3>
+                            <p class="stat-label">Agendamentos Aprovados</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-number" id="totalCancelados">0</h3>
+                            <p class="stat-label">Agendamentos Cancelados</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-number" id="totalAgendamentos">0</h3>
+                            <p class="stat-label">Total de Agendamentos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filtros e Busca -->
+            <div class="filters-section">
+                <div class="filters-grid">
+                    <div class="filter-group">
+                        <label for="filterStatus">Status:</label>
+                        <select id="filterStatus">
+                            <option value="todos">Todos os Status</option>
+                            <option value="pendente">Pendentes</option>
+                            <option value="confirmado">Aprovados</option>
+                            <option value="cancelado">Cancelados</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="filterData">Data:</label>
+                        <input type="date" id="filterData">
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="filterSala">Sala:</label>
+                        <select id="filterSala">
+                            <option value="todos">Todas as Salas</option>
+                            <option value="Sala do Segundo Andar">Sala do Segundo Andar</option>
+                            <option value="Sala do Quarto Andar">Sala do Quarto Andar</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="searchInput">Buscar:</label>
+                        <div class="search-box">
+                            <input type="text" id="searchInput" placeholder="Solicitante, email ou assunto...">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="filter-actions">
+                    <button class="btn btn-secondary" id="btnLimparFiltros">
+                        <i class="fas fa-broom"></i>
+                        Limpar Filtros
+                    </button>
+                    <button class="btn btn-primary" id="btnAplicarFiltros">
+                        <i class="fas fa-filter"></i>
+                        Aplicar Filtros
+                    </button>
+                </div>
+            </div>
+
+            <!-- Lista de Agendamentos -->
+            <section class="agendamentos-admin-section">
+                <div class="section-header">
+                    <h2 class="section-title">Solicitações de Agendamento</h2>
+                    <p class="section-subtitle">Gerencie todas as solicitações do sistema</p>
+                </div>
+
+                <div class="table-container">
+                    <table class="agendamentos-table" id="tabelaAgendamentosAdmin">
+                        <thead>
+                            <tr>
+                                <th>Data/Hora</th>
+                                <th>Solicitante</th>
+                                <th>Email</th>
+                                <th>Sala</th>
+                                <th>Assunto</th>
+                                <th>Duração</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="8" class="loading-state">
+                                    <i class="fas fa-spinner fa-spin"></i>
+                                    Carregando solicitações...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Paginação -->
+                <div class="pagination" id="pagination">
+                    <button class="pagination-btn" id="prevPage" disabled>
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <span class="pagination-info" id="paginationInfo">Página 1 de 1</span>
+                    <button class="pagination-btn" id="nextPage" disabled>
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modal de Aprovação -->
+    <div id="modalAprovar" class="modal">
+        <div class="modal-content modal-sm">
+            <div class="modal-header">
+                <h3><i class="fas fa-check-circle"></i> Aprovar Agendamento</h3>
+                <span class="close-btn">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Tem certeza que deseja aprovar este agendamento?</p>
+                <div class="agendamento-info" id="infoAprovar">
+                    <!-- Preenchido via JavaScript -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="btnCancelarAprovacao">Cancelar</button>
+                <button class="btn btn-success" id="btnConfirmarAprovacao">
+                    <i class="fas fa-check"></i>
+                    Confirmar Aprovação
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Cancelamento -->
+    <div id="modalCancelar" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-times-circle"></i> Cancelar Agendamento</h3>
+                <span class="close-btn">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Informe o motivo do cancelamento (será enviado por email):</p>
+                <div class="agendamento-info" id="infoCancelar">
+                    <!-- Preenchido via JavaScript -->
+                </div>
+                <div class="form-group">
+                    <label for="motivoCancelamento">Motivo do Cancelamento:</label>
+                    <textarea id="motivoCancelamento" rows="4" placeholder="Digite o motivo do cancelamento..." required></textarea>
+                    <small class="help-text">Este texto será enviado por email ao solicitante.</small>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="btnCancelarCancelamento">Voltar</button>
+                <button class="btn btn-danger" id="btnConfirmarCancelamento">
+                    <i class="fas fa-times"></i>
+                    Confirmar Cancelamento
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Edição -->
+    <div id="modalEditar" class="modal">
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <h3><i class="fas fa-edit"></i> Editar Agendamento</h3>
+                <span class="close-btn">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="formEditarAgendamento">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="editData">Data:</label>
+                            <input type="date" id="editData" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editHorario">Horário:</label>
+                            <select id="editHorario" required>
+                                <option value="">Selecione o horário</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="editSala">Sala:</label>
+                            <select id="editSala" required>
+                                <option value="">Selecione a sala</option>
+                                <option value="Sala do Segundo Andar">Sala do Segundo Andar</option>
+                                <option value="Sala do Quarto Andar">Sala do Quarto Andar</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="editDuracao">Duração (minutos):</label>
+                            <input type="number" id="editDuracao" min="15" max="480" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="editSolicitante">Solicitante:</label>
+                            <input type="text" id="editSolicitante" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editEmail">Email:</label>
+                            <input type="email" id="editEmail" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="editServico">Tema da Reunião:</label>
+                        <input type="text" id="editServico" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="editObservacoes">Observações:</label>
+                        <textarea id="editObservacoes" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="editJustificativa">Justificativa da Edição (será enviada por email):</label>
+                        <textarea id="editJustificativa" rows="3" placeholder="Explique as alterações realizadas..." required></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="btnCancelarEdicao">Cancelar</button>
+                <button class="btn btn-primary" id="btnConfirmarEdicao">
+                    <i class="fas fa-save"></i>
+                    Salvar Alterações
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Detalhes -->
+    <div id="modalDetalhes" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-info-circle"></i> Detalhes do Agendamento</h3>
+                <span class="close-btn">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="detalhes-agendamento" id="detalhesAgendamento">
+                    <!-- Preenchido via JavaScript -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="btnFecharDetalhes">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="JS/admin-auth.js"></script>
+    <script src="JS/admin-panel.js"></script>
+</body>
+</html>

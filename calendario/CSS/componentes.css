@@ -1,0 +1,381 @@
+/* =============================================
+   COMPONENTES.CSS - VERSÃO 5 (MODIFICADO)
+   COMPONENTES GERAIS DO SISTEMA
+   ============================================= */
+
+/* 
+ * BOTÕES - COMPONENTES GERAIS
+ */
+.btn {
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.btn-primary {
+  background: var(--drawind-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--drawind-accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--drawind-primary);
+  border: 2px solid var(--drawind-primary);
+}
+
+.btn-secondary:hover {
+  background: var(--drawind-primary);
+  color: white;
+}
+
+/* 
+ * CARDS DE ESTATÍSTICAS - COMPONENTES GERAIS
+ */
+.stat-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.stat-icon {
+  font-size: 2rem;
+  color: var(--drawind-primary);
+}
+
+.stat-content {
+  flex: 1;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--drawind-primary);
+  margin: 0;
+  line-height: 1;
+}
+
+.stat-label {
+  color: var(--text-secondary);
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* 
+ * SEÇÃO DE AGENDAMENTOS - COMPONENTES GERAIS
+ */
+.agendamentos-section {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.section-header {
+  background: var(--drawind-primary);
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+  margin: 0 0 0.5rem 0;
+}
+
+.section-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* 
+ * TABELA - COMPONENTES GERAIS
+ */
+.table-container {
+  overflow-x: auto;
+}
+
+.agendamentos-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card-bg);
+}
+
+.agendamentos-table th {
+  background: #f8f9fa;
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--border-color);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.agendamentos-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  vertical-align: middle;
+}
+
+.agendamentos-table tbody tr:hover {
+  background: var(--hover-bg);
+}
+
+.loading-state {
+  text-align: center;
+  padding: 3rem !important;
+  color: var(--text-muted);
+}
+
+.no-data {
+  text-align: center;
+  padding: 3rem !important;
+  color: var(--text-muted);
+}
+
+/* 
+ * WIDGETS - COMPONENTES GERAIS
+ * Calendário e informações do sistema
+ */
+.calendar-widget,
+.system-info-widget {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.calendar-header h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.calendar-nav {
+  background: var(--drawind-primary);
+  color: white;
+  border: none;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.calendar-nav:hover {
+  background: var(--drawind-accent);
+  transform: scale(1.1);
+}
+
+.mini-calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.25rem;
+  text-align: center;
+}
+
+.weekday {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 0.5rem 0;
+  text-transform: uppercase;
+}
+
+.day {
+  padding: 0.5rem 0;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.day:hover {
+  background: var(--hover-bg);
+}
+
+.day.today {
+  background: var(--drawind-primary);
+  color: white;
+  border-color: var(--drawind-primary);
+}
+
+.day.empty {
+  background: transparent;
+  cursor: default;
+}
+
+/* 
+ * INFORMAÇÕES DO SISTEMA - COMPONENTES GERAIS
+ */
+.system-info-widget h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--drawind-primary);
+  padding-bottom: 0.5rem;
+}
+
+.info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.info-item:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.info-value {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.info-value.online {
+  color: var(--status-confirmado);
+}
+
+/* 
+ * BADGES DE STATUS - COMPONENTES GERAIS
+ */
+.status-badge {
+  padding: 0.35rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-pendente {
+  background: var(--status-pendente);
+  color: #000;
+}
+
+.status-confirmado {
+  background: var(--status-confirmado);
+  color: white;
+}
+
+.status-cancelado {
+  background: var(--status-cancelado);
+  color: white;
+}
+
+/* 
+ * TOOLTIPS PARA CALENDÁRIO
+ * (Para mostrar informações ao passar o mouse)
+ */
+.day.has-events {
+  position: relative;
+}
+
+.day.has-events::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  background: var(--drawind-primary);
+  border-radius: 50%;
+}
+
+.calendar-tooltip {
+  position: absolute;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  box-shadow: var(--shadow-md);
+  z-index: 1000;
+  min-width: 200px;
+  font-size: 0.8rem;
+}
+
+.calendar-tooltip h4 {
+  margin: 0 0 0.5rem 0;
+  color: var(--drawind-primary);
+  font-size: 0.9rem;
+}
+
+.calendar-tooltip .event-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.calendar-tooltip .event-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.calendar-tooltip .event-item:last-child {
+  border-bottom: none;
+}

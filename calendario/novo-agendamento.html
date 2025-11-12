@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Agendamento - Sistema Drawind</title>
+    
+    <link rel="stylesheet" href="CSS/base.css">
+    <link rel="stylesheet" href="CSS/layout.css">
+    <link rel="stylesheet" href="CSS/componentes.css">
+    <link rel="stylesheet" href="CSS/agendamento.css">
+    <link rel="stylesheet" href="CSS/responsivo.css">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+</head>
+<body class="pagina-agendamento">
+    
+    <header class="header-agendamento">
+        <div class="container">
+            <div class="header-content">
+                <div class="brand-section">
+                    <i class="fas fa-calendar-plus brand-icon"></i>
+                    <h1 class="brand-title">Novo Agendamento</h1>
+                </div>
+                <div class="header-actions">
+                    <a href="calendario.html" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i>
+                        Voltar ao Sistema
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-agendamento">
+        <div class="container">
+            <div class="agendamento-card">
+                
+                <div class="form-header">
+                    <h2><i class="fas fa-calendar-check"></i> Dados do Agendamento</h2>
+                    <p>Todos os campos marcados com <span class="required">*</span> são obrigatórios</p>
+                </div>
+
+                <form id="formAgendamentoRapido" class="agendamento-form">
+                    
+                    <div class="form-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-door-open"></i>
+                            Informações da Sala
+                        </h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="selectSala" class="required">
+                                    Sala
+                                    <span class="help-text">Escolha a sala desejada</span>
+                                </label>
+                                <select id="selectSala" required>
+                                    <option value="">Selecione uma sala</option>
+                                    <option value="Sala do Segundo Andar">Sala do Segundo Andar</option>
+                                    <option value="Sala do Quarto Andar">Sala do Quarto Andar</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputData" class="required">
+                                    Data
+                                    <span class="help-text">Apenas dias úteis (segunda a sexta)</span>
+                                </label>
+                                <input type="date" id="inputData" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="selectHorario" class="required">
+                                    Horário
+                                    <span class="help-text">Horário comercial: 7:00 às 19:00</span>
+                                </label>
+                                <select id="selectHorario" required>
+                                    <option value="">Selecione um horário comercial</option>
+                                    <!-- Horários serão carregados dinamicamente -->
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="selectDuracao" class="required">
+                                    Duração da Reunião
+                                    <span class="help-text">Mínimo 15 minutos, máximo 8 horas</span>
+                                </label>
+                                <select id="selectDuracao" required>
+                                    <option value="15">15 minutos</option>
+                                    <option value="30">30 minutos</option>
+                                    <option value="45">45 minutos</option>
+                                    <option value="60" selected>1 hora</option>
+                                    <option value="90">1 hora e 30min</option>
+                                    <option value="120">2 horas</option>
+                                    <option value="180">3 horas</option>
+                                    <option value="240">4 horas</option>
+                                    <option value="300">5 horas</option>
+                                    <option value="360">6 horas</option>
+                                    <option value="420">7 horas</option>
+                                    <option value="480">8 horas</option>
+                                </select>
+                                <!-- Input custom será adicionado dinamicamente -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-user"></i>
+                            Informações do Solicitante
+                        </h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="inputSolicitante" class="required">
+                                    Nome Completo
+                                </label>
+                                <input type="text" id="inputSolicitante" 
+                                       placeholder="Digite o nome completo do solicitante" 
+                                       required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputEmail" class="required">
+                                    Email
+                                </label>
+                                <input type="email" id="inputEmail" 
+                                       placeholder="email@empresa.com" 
+                                       required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-briefcase"></i>
+                            Detalhes da Reunião
+                        </h3>
+                        
+                        <div class="form-group full-width">
+                            <label for="inputServico" class="required">
+                                Tema da Reunião
+                            </label>
+                            <input type="text" id="inputServico" 
+                                   placeholder="Descreva o tema ou assunto da reunião" 
+                                   required>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="inputObservacoes">
+                                Observações Adicionais
+                                <span class="help-text">Informações extras sobre a reunião</span>
+                            </label>
+                            <textarea id="inputObservacoes" 
+                                      placeholder="Alguma observação adicional sobre a reunião, participantes especiais, equipamentos necessários, etc..." 
+                                      rows="4"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Notificação do Sistema com Novas Regras -->
+                    <div class="system-notification">
+                        <div class="notification-icon">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div class="notification-content">
+                            <strong>Regras do Sistema:</strong>
+                            <ul style="margin: 0.5rem 0 0 1rem; padding-left: 1rem;">
+                                <li>Um email de confirmação será enviado após a aprovação</li>
+                                <li>Intervalo de 15 minutos entre reuniões na mesma sala</li>
+                                <li>Horários passados não estão disponíveis</li>
+                                <li>Duração mínima: 15 minutos | máxima: 8 horas</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Botões de Ação -->
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="btnLimpar">
+                            <i class="fas fa-broom"></i>
+                            Limpar Formulário
+                        </button>
+                        <button type="submit" class="btn btn-primary" id="btnAgendar">
+                            <i class="fas fa-calendar-plus"></i>
+                            Criar Agendamento
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="JS/gaveta.js"></script>
+    <script src="JS/agendamento-rapido.js"></script>
+
+</body>
+</html>

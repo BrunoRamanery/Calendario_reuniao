@@ -1,0 +1,464 @@
+/* =============================================
+   RESPONSIVO.CSS - VERSÃO 5 (ATUALIZADO)
+   Adaptado para novo layout igual ao do chefe
+   ============================================= */
+
+/* 
+ * TABLETS (768px a 1024px) 
+ */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .content-with-sidebar {
+        gap: 1.5rem;
+    }
+    
+    .main-content-area {
+        flex: 1.5;
+    }
+    
+    .sidebar-widgets {
+        flex: 1;
+        min-width: 280px;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .header-content {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .brand-section {
+        flex: 1;
+        min-width: 200px;
+    }
+    
+    .header-actions {
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+}
+
+/* 
+ * DISPOSITIVOS MÉDIOS (576px a 768px)
+ */
+@media (max-width: 768px) {
+    .system-header {
+        padding: 0.75rem 0;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .brand-section {
+        justify-content: center;
+    }
+    
+    .header-actions {
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .main-content {
+        padding: 1rem 0;
+    }
+    
+    .content-with-sidebar {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .main-content-area,
+    .sidebar-widgets {
+        flex: none;
+        width: 100%;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .stat-card {
+        padding: 1.25rem;
+    }
+    
+    .agendamentos-section {
+        margin-bottom: 1.5rem;
+    }
+    
+    /* TABELA RESPONSIVA */
+    .table-container {
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+    }
+    
+    .agendamentos-table {
+        font-size: 0.8rem;
+    }
+    
+    .agendamentos-table th,
+    .agendamentos-table td {
+        padding: 0.75rem 0.5rem;
+    }
+    
+    .agendamentos-table th:nth-child(3), /* Email */
+    .agendamentos-table td:nth-child(3) {
+        display: none; /* Oculta email em mobile */
+    }
+    
+    /* CALENDÁRIO MOBILE */
+    .calendar-widget {
+        padding: 1rem;
+    }
+    
+    .mini-calendar {
+        gap: 0.2rem;
+    }
+    
+    .weekday {
+        font-size: 0.65rem;
+        padding: 0.4rem 0;
+    }
+    
+    .day {
+        padding: 0.4rem 0;
+        font-size: 0.75rem;
+    }
+    
+    /* MODAL MOBILE */
+    .modal-content {
+        margin: 5% auto;
+        width: 95%;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .form-group {
+        width: 100%;
+    }
+}
+
+/* 
+ * DISPOSITIVOS PEQUENOS (até 576px)
+ */
+@media (max-width: 576px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    .system-header {
+        padding: 0.5rem 0;
+    }
+    
+    .brand-title {
+        font-size: 1.25rem;
+    }
+    
+    .brand-icon {
+        font-size: 1.5rem;
+    }
+    
+    .header-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .main-content {
+        padding: 0.5rem 0;
+    }
+    
+    .section-header {
+        padding: 1rem;
+    }
+    
+    .section-title {
+        font-size: 1.1rem;
+    }
+    
+    .section-subtitle {
+        font-size: 0.8rem;
+    }
+    
+    /* TABELA MUITO PEQUENA */
+    .agendamentos-table {
+        font-size: 0.75rem;
+    }
+    
+    .agendamentos-table th,
+    .agendamentos-table td {
+        padding: 0.5rem 0.25rem;
+    }
+    
+    .agendamentos-table th:nth-child(4), /* Sala */
+    .agendamentos-table td:nth-child(4) {
+        display: none; /* Oculta sala em telas muito pequenas */
+    }
+    
+    .status-badge {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.5rem;
+    }
+    
+    /* ESTATÍSTICAS MOBILE */
+    .stat-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+    }
+    
+    .stat-icon {
+        margin-bottom: 0.5rem;
+    }
+    
+    .stat-number {
+        font-size: 1.75rem;
+    }
+    
+    .stat-label {
+        font-size: 0.8rem;
+    }
+    
+    /* CALENDÁRIO MOBILE COMPACTO */
+    .calendar-widget {
+        padding: 0.75rem;
+    }
+    
+    .calendar-header {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    
+    .calendar-header h3 {
+        font-size: 0.9rem;
+    }
+    
+    .mini-calendar {
+        gap: 0.1rem;
+    }
+    
+    .weekday {
+        font-size: 0.6rem;
+        padding: 0.3rem 0;
+    }
+    
+    .day {
+        padding: 0.3rem 0;
+        font-size: 0.7rem;
+    }
+    
+    /* INFORMAÇÕES DO SISTEMA MOBILE */
+    .system-info-widget {
+        padding: 1rem;
+    }
+    
+    .info-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+    
+    .info-label {
+        font-size: 0.8rem;
+    }
+    
+    .info-value {
+        font-size: 0.8rem;
+    }
+    
+    /* MODAL MOBILE OTIMIZADO */
+    .modal-content {
+        margin: 2% auto;
+        padding: 1rem;
+        width: 98%;
+    }
+    
+    .modal-title {
+        font-size: 1.1rem;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .form-actions .btn {
+        width: 100%;
+    }
+}
+
+/* 
+ * ORIENTAÇÃO LANDSCAPE EM MOBILE
+ */
+@media (max-width: 768px) and (orientation: landscape) {
+    .modal-content {
+        max-height: 80vh;
+    }
+    
+    .main-content {
+        padding: 0.5rem 0;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* 
+ * DISPOSITIVOS MUITO PEQUENOS (até 360px)
+ */
+@media (max-width: 360px) {
+    .container {
+        padding: 0 5px;
+    }
+    
+    .brand-title {
+        font-size: 1.1rem;
+    }
+    
+    .stats-grid {
+        gap: 0.5rem;
+    }
+    
+    .stat-card {
+        padding: 0.75rem;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .agendamentos-table {
+        font-size: 0.7rem;
+    }
+    
+    .agendamentos-table th:nth-child(5), /* Assunto */
+    .agendamentos-table td:nth-child(5) {
+        max-width: 80px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+/* 
+ * IMPRESSÃO
+ */
+@media print {
+    .system-header,
+    .header-actions,
+    .sidebar-widgets,
+    .btn-acao {
+        display: none !important;
+    }
+    
+    .main-content-area {
+        width: 100% !important;
+    }
+    
+    .agendamentos-table {
+        font-size: 10pt !important;
+    }
+    
+    .stat-card {
+        break-inside: avoid;
+    }
+}
+
+/* 
+ * ACESSIBILIDADE - ALTO CONTRASTE
+ */
+@media (prefers-contrast: high) {
+    :root {
+        --border-color: #000000;
+        --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.8);
+    }
+    
+    .stat-card,
+    .agendamentos-section,
+    .calendar-widget,
+    .system-info-widget {
+        border: 2px solid var(--border-color);
+    }
+}
+
+/* 
+ * ACESSIBILIDADE - REDUÇÃO DE MOVIMENTO
+ */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .stat-card:hover,
+    .btn:hover {
+        transform: none !important;
+    }
+}
+
+/* 
+ * ESTILOS PARA ERRO DE CARREGAMENTO
+ */
+.erro-carregamento {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    color: white;
+}
+
+.erro-conteudo {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    max-width: 400px;
+    margin: 1rem;
+}
+
+.erro-conteudo h3 {
+    color: var(--status-cancelado);
+    margin-bottom: 1rem;
+}
+
+.btn-recarregar {
+    background: var(--drawind-primary);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    margin-top: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}

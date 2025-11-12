@@ -1,0 +1,190 @@
+/* =============================================
+   DASHBOARD.CSS - VERSÃO 5 (MODIFICADO)
+   MUDANÇA: Adaptar componentes do dashboard para layout do chefe
+   ============================================= */
+
+/* 
+ * DASHBOARD PRINCIPAL - MODIFICADO
+ * ANTES: Sidebar esquerda com múltiplas seções
+ * DEPOIS: Conteúdo principal apenas (sidebar removida)
+ */
+.dashboard-main {
+  width: 100%;
+}
+
+/* 
+ * CALENDÁRIO DO DASHBOARD - MODIFICADO
+ * ANTES: Calendário na sidebar esquerda
+ * DEPOIS: Calendário como widget lateral direito
+ */
+.dashboard-calendar {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+  margin-bottom: 0; /* Remove margem inferior */
+}
+
+/* 
+ * LEGENDA DO CALENDÁRIO - MODIFICADA
+ * ANTES: Lista vertical completa
+ * DEPOIS: Compacta, estilo do chefe
+ */
+.calendar-legend {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.calendar-legend .legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.calendar-legend .status-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 0 0 1px var(--border-color);
+}
+
+.calendar-legend .status-dot.disponivel { 
+  background: var(--status-confirmado); 
+}
+
+.calendar-legend .status-dot.ocupado { 
+  background: var(--status-cancelado); 
+}
+
+.calendar-legend .status-dot.hoje { 
+  background: var(--drawind-primary); 
+}
+
+/* 
+ * LEGENDA DE STATUS - MODIFICADA
+ * ANTES: Na sidebar esquerda
+ * DEPOIS: Pode ser removida ou integrada em outro local
+ */
+.dashboard-legend {
+  display: none; /* Remove da sidebar - pode ser integrada em outro lugar */
+}
+
+/* 
+ * INFORMAÇÕES DO SISTEMA - MODIFICADAS
+ * ANTES: Na sidebar esquerda
+ * DEPOIS: No widget lateral direito
+ */
+.dashboard-info {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+}
+
+.dashboard-info h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--drawind-primary);
+  padding-bottom: 0.5rem;
+}
+
+.dashboard-info .info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.dashboard-info .info-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.dashboard-info .info-label {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.dashboard-info .info-value {
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dashboard-info .info-value.online {
+  color: var(--status-confirmado);
+}
+
+.dashboard-info .info-value.offline {
+  color: var(--status-cancelado);
+}
+
+.dashboard-info .info-value.syncing {
+  color: var(--status-pendente);
+}
+
+/* 
+ * ESTATÍSTICAS DA SIDEBAR - REMOVIDAS
+ * ANTES: Estatísticas adicionais na sidebar
+ * DEPOIS: Movidas para os cards principais
+ */
+.sidebar-stats {
+  display: none; /* Remove - já temos stats principais */
+}
+
+/* 
+ * ANIMAÇÕES ESPECÍFICAS - MANTIDAS
+ * Mas adaptadas para o novo layout
+ */
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Aplica animação aos widgets */
+.calendar-widget,
+.system-info-widget {
+  animation: slideInFromLeft 0.5s ease-out;
+}
+
+/* 
+ * RESPONSIVIDADE - ATUALIZADA
+ */
+@media (max-width: 768px) {
+  .dashboard-calendar,
+  .dashboard-info {
+    padding: 1rem;
+  }
+  
+  .calendar-legend .legend-item {
+    font-size: 0.75rem;
+  }
+  
+  .dashboard-info .info-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+  
+  .dashboard-info .info-value {
+    font-size: 0.85rem;
+  }
+}

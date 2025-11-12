@@ -1,0 +1,365 @@
+/* =============================================
+   ADMIN.CSS - ESTILOS DO PAINEL ADMINISTRATIVO
+   ============================================= */
+
+.pagina-admin {
+    min-height: 100vh;
+    background: var(--drawind-light);
+}
+
+.header-admin {
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    padding: 1rem 0;
+}
+
+.admin-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+}
+
+.admin-welcome {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.admin-status {
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.admin-status.online {
+    color: var(--status-confirmado);
+}
+
+.admin-status.offline {
+    color: var(--status-cancelado);
+}
+
+.main-admin {
+    padding: 2rem 0;
+}
+
+/* SEÇÃO DE FILTROS */
+.filters-section {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.filters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.filter-group label {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+.filter-group input,
+.filter-group select {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 0.9rem;
+}
+
+.search-box {
+    position: relative;
+}
+
+.search-box input {
+    width: 100%;
+    padding-right: 2.5rem;
+}
+
+.search-box i {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+}
+
+.filter-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* BOTÕES DE AÇÃO */
+.btn-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.btn-acao {
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.8rem;
+}
+
+.btn-aprovar {
+    background: var(--status-confirmado);
+    color: white;
+}
+
+.btn-aprovar:hover {
+    background: #0daa6c;
+    transform: scale(1.1);
+}
+
+.btn-cancelar {
+    background: var(--status-cancelado);
+    color: white;
+}
+
+.btn-cancelar:hover {
+    background: #dc3545;
+    transform: scale(1.1);
+}
+
+.btn-editar {
+    background: var(--status-pendente);
+    color: white;
+}
+
+.btn-editar:hover {
+    background: #f59e0b;
+    transform: scale(1.1);
+}
+
+.btn-detalhes {
+    background: var(--drawind-primary);
+    color: white;
+}
+
+.btn-detalhes:hover {
+    background: var(--drawind-accent);
+    transform: scale(1.1);
+}
+
+/* MODAIS ADMIN */
+.modal-sm {
+    max-width: 500px;
+}
+
+.modal-lg {
+    max-width: 700px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modal-header h3 {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-primary);
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.modal-footer {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* INFORMAÇÕES DO AGENDAMENTO NOS MODAIS */
+.agendamento-info {
+    background: var(--hover-bg);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--drawind-primary);
+}
+
+.info-item {
+    display: flex;
+    margin-bottom: 0.5rem;
+}
+
+.info-label {
+    font-weight: 600;
+    min-width: 100px;
+    color: var(--text-primary);
+}
+
+.info-value {
+    color: var(--text-secondary);
+}
+
+/* DETALHES DO AGENDAMENTO */
+.detalhes-agendamento .info-item {
+    display: flex;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.detalhes-agendamento .info-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.detalhes-agendamento .info-label {
+    min-width: 120px;
+}
+
+/* PAGINAÇÃO */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding: 1rem;
+}
+
+.pagination-btn {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid var(--border-color);
+    background: white;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background: var(--hover-bg);
+    border-color: var(--drawind-primary);
+}
+
+.pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination-info {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* BOTÕES ESPECIAIS */
+.btn-success {
+    background: var(--status-confirmado);
+    color: white;
+    border: none;
+}
+
+.btn-success:hover {
+    background: #0daa6c;
+}
+
+.btn-danger {
+    background: var(--status-cancelado);
+    color: white;
+    border: none;
+}
+
+.btn-danger:hover {
+    background: #dc3545;
+}
+
+/* STATUS BADGES */
+.status-badge {
+    padding: 0.35rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.status-pendente {
+    background: var(--status-pendente);
+    color: #000;
+}
+
+.status-confirmado {
+    background: var(--status-confirmado);
+    color: white;
+}
+
+.status-cancelado {
+    background: var(--status-cancelado);
+    color: white;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .filters-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .filter-actions {
+        flex-direction: column;
+    }
+    
+    .btn-actions {
+        flex-wrap: wrap;
+    }
+    
+    .admin-info {
+        align-items: flex-start;
+    }
+    
+    .modal-footer {
+        flex-direction: column;
+    }
+    
+    .detalhes-agendamento .info-item {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    .detalhes-agendamento .info-label {
+        min-width: auto;
+    }
+}
